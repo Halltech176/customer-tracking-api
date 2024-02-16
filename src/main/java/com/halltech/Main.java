@@ -2,10 +2,7 @@ package com.halltech;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,15 @@ public class Main {
         return  customers;
     }
 
-    static class Customer {
+    @GetMapping("/api/v1/customers/{customerId}")
+    public Customer getCustomer(@PathVariable("customerId") Integer customerId){
+        return customers.stream()
+                .filter(value -> value.id.equals(customerId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("customer with this id does not exist"));
+    }
+
+    static public class Customer {
         private Integer id;
         private String name;
         private String email;
