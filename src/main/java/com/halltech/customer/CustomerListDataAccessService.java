@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-@Repository
-public class CustomerDataAccessService implements CustomerDao {
+@Repository("list")
+public class CustomerListDataAccessService implements CustomerDao {
 
     private static final List<Customer> customers;
 
@@ -18,6 +18,8 @@ public class CustomerDataAccessService implements CustomerDao {
         customers.add(customer1);
         customers.add(customer2);
     }
+
+
     @Override
     public List<Customer> selectAllCustomers() {
         return customers;
@@ -28,6 +30,35 @@ public class CustomerDataAccessService implements CustomerDao {
         return customers.stream()
                 .filter(value -> value.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public void insertCustomer(Customer customer){
+        customers.add(customer);
+    }
+
+
+    @Override
+    public void deleteCustomerById(Integer id) {
+        customers.stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst()
+                .ifPresent(customers::remove);
+    }
+
+    @Override
+    public boolean existsPersonWithEmail(String email) {
+        return customers.stream().anyMatch(c -> c.getEmail().equals(email));
+    }
+
+    @Override
+    public boolean existsPersonWithId(Integer id) {
+        return customers.stream().anyMatch(c -> c.getId().equals(id));
+    }
+
+    @Override
+    public void updateCustomer(Customer update) {
+        customers.add(update);
     }
 
 }

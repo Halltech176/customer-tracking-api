@@ -1,17 +1,50 @@
 package com.halltech.customer;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+
+@Entity
  public class Customer{
-    private Integer age;
+
+    @Id
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"
+    )
     public Integer id;
+
+
+    @Column(
+            nullable = false
+    )
+    private Integer age;
+
+    @Column(
+            nullable = false
+    )
     private String name;
+
+    @Column(
+            nullable = false
+    )
     private String email;
 
     public Customer(){}
     public Customer(Integer id, Integer age, String name, String email){
         this.age = age;
         this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Customer(Integer age, String name, String email) {
+        this.age = age;
         this.name = name;
         this.email = email;
     }
