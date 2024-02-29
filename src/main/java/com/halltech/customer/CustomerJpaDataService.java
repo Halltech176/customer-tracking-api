@@ -8,7 +8,6 @@ import java.util.Optional;
 public class CustomerJpaDataService implements  CustomerDao{
     private final CustomerRespository customerRespository;
 
-
     public CustomerJpaDataService(CustomerRespository customerRespository){
         this.customerRespository = customerRespository;
     }
@@ -36,7 +35,6 @@ public class CustomerJpaDataService implements  CustomerDao{
     @Override
     public boolean existsPersonWithEmail(String email) {
         return customerRespository.existsCustomerByEmail(email);
-
     }
 
     @Override

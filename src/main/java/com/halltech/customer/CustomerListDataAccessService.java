@@ -12,14 +12,11 @@ public class CustomerListDataAccessService implements CustomerDao {
 
     static {
         customers = new ArrayList<>();
-
         Customer customer1 = new Customer(1,20, "Olayemi", "devhalltech@gmail.com");
         Customer customer2 = new Customer(2,21, "Ayomide", "olayemiaayomide6412@gmail.com");
         customers.add(customer1);
         customers.add(customer2);
     }
-
-
     @Override
     public List<Customer> selectAllCustomers() {
         return customers;
