@@ -1,6 +1,7 @@
 import './App.css'
-import Userprofile from "./pages/Userprofile.jsx";
+import Userprofile from "./pages/userprofile.jsx";
 import Routes from "./routes/index.jsx";
+import CustomerProvider from "./context/customers.jsx";
 
 
 const names = [{
@@ -16,7 +17,10 @@ function App() {
 
   return (
     <>
-      <Routes/>
+      <CustomerProvider>
+        <Routes/>
+      </CustomerProvider>
+
 
     </>
   )

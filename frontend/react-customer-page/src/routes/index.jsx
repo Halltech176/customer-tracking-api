@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Customers from "../pages/customers.jsx";
-import Userprofile from "../pages/Userprofile.jsx";
+import Userprofile from "../pages/userprofile.jsx";
 
 
 const Routes = () => {
