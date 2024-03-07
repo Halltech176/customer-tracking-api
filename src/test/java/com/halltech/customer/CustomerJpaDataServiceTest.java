@@ -11,8 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerJpaDataServiceTest {
 
+
     private  CustomerJpaDataService underTest;
     private  AutoCloseable autoCloseable;
+
+
     @Mock
     private  CustomerRespository customerRespository;
 
@@ -35,6 +38,9 @@ class CustomerJpaDataServiceTest {
 
     @Test
     void selectCustomerById() {
+//        int id = 1;
+//        underTest.selectCustomerById(id);
+//        Mockito.verify(customerRespository).findById(id);
     }
 
     @Test
