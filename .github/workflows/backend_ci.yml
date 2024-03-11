@@ -33,4 +33,4 @@ jobs:
           java-version: '21'
           cache: 'maven'
       - name: Build and run integration test with maven
-        run: mvn -ntp -B verify
+        run: mvn install verify
