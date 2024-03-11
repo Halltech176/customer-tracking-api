@@ -17,7 +17,7 @@ services:
     container_name: halltech-api
     image: halltech101/halltech-api
     environment:
-      SPRING_DATASOURCE_URL : jdbc:postgresql://db:5432/customer
+      SPRING_DATASOURCE_URL : jdbc:postgresql://awseb-e-5auqqmbucy-stack-awsebrdsdatabase-db2qlqjwwfd0.c3kqs2omote2.eu-north-1.rds.amazonaws.com:5432/customer
     ports:
       - 3000:3000
     networks:
