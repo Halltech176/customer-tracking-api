@@ -11,10 +11,11 @@
 	<groupId>com.halltech</groupId>
 	<artifactId>halltech-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<organization>
-		<name>halltech101</name>
-		<url>https://halltech.com</url>
-	</organization>
+
+<!--	<organization>-->
+<!--		<name>halltech101</name>-->
+<!--		<url>https://halltech.com</url>-->
+<!--	</organization>-->
 <!--	<name>spring-boot-example</name>-->
 <!--	<description>Demo project for Spring Boot</description>-->
 	<properties>
@@ -22,6 +23,8 @@
 		<maven.compiler.source.target>21</maven.compiler.source.target>
 		<java.version>21</java.version>
 		<docker.username>halltech101</docker.username>
+		<docker.image.name>halltech-api</docker.image.name>
+		<docker.image.tag/>
 <!--		<docker.password>@Machine101</docker.password>-->
 
 	</properties>
@@ -115,7 +118,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/${project.organization.name}/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 						<auth>
 							<username>halltech101</username>
 							<password>@Machine101</password>
