@@ -46,6 +46,12 @@
         )
         private String email;
 
+        @Column(
+                nullable = false
+        )
+        @Enumerated(EnumType.STRING)
+        private Gender gender;
+
         public Customer(){}
         public Customer(Integer id, Integer age, String name, String email){
             this.age = age;

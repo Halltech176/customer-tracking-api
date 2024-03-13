@@ -28,8 +28,6 @@ public class Main {
             Customer customer2 = new Customer(30, "Olayemi", "devtech" );
 
             List<Customer> customerList = List.of(customer1, customer2);
-
-
             customerRespository.saveAll(customerList);
         };
     }

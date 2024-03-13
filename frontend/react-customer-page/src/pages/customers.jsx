@@ -10,14 +10,10 @@ const Customers = () => {
 
     return (
         <Layout>
-            {
-                loading ? <Loader/> :  <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            {loading ? <Loader/> :  <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
                     {customers.map((customer) => <CardItem key={customer?.id} customer={customer}/>)}
                 </SimpleGrid>
-
             }
-
-
         </Layout>
     )
 }

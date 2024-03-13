@@ -50,6 +50,7 @@ const CardItem = ({customer}) => {
                         <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
                             {customer?.name?.firstname} {customer?.name?.lastname}
                         </Heading>
+                        <Text color={'gray.500'}>{customer?.email}</Text>
                         <Text color={'gray.500'}>Frontend Developer</Text>
                     </Stack>
 
