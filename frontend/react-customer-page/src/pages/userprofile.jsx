@@ -12,4 +12,4 @@ const Userprofile = ({name, age, gender}) => {
     )
 }
 
-export default  Userprofile
+export default Userprofile

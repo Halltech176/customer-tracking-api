@@ -1,18 +1,20 @@
 import {createContext, useContext, useEffect, useState} from "react";
-import {useDisclosure} from "@chakra-ui/react";
 import {getCustomers} from "../services/client.jsx";
 
 
 const initialState = {
-    customers : [],
-    loading: false
+    customers: [],
+    loading: false,
+    setCustomers: () => {
+    }
 }
 const CustomerContext = createContext(initialState)
 
+// eslint-disable-next-line react/prop-types
 const CustomerProvider = ({children}) => {
 
     const [customers, setCustomers] = useState([])
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -21,12 +23,12 @@ const CustomerProvider = ({children}) => {
             setCustomers(res.data)
         }).catch(err => {
             console.log(err)
-        }).finally(() =>{
+        }).finally(() => {
             setLoading(false)
         })
     }, []);
 
-    const value = {customers, loading}
+    const value = {customers, loading, setCustomers}
     return <CustomerContext.Provider value={value}>
         {children}
     </CustomerContext.Provider>
@@ -36,4 +38,4 @@ export const useCustomers = () => {
     return useContext(CustomerContext)
 }
 
-export  default  CustomerProvider
+export default CustomerProvider
