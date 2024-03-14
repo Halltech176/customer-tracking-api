@@ -5,15 +5,15 @@ import Navbar from "./navbar.jsx";
 
 const Layout = ({children}) => {
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const {isOpen, onOpen, onClose} = useDisclosure()
     return <>
 
         <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
-            <Sidebar onClose={onClose} isOpen={isOpen} onOpen={onOpen} />
+            <Sidebar onClose={onClose} isOpen={isOpen} onOpen={onOpen}/>
 
             <Navbar onOpen={onOpen}/>
 
-            <Box ml={{ base: 0, md: 60 }} p="4">
+            <Box ml={{base: 0, md: 60}} p="4">
                 {children}
             </Box>
 
@@ -21,7 +21,6 @@ const Layout = ({children}) => {
 
     </>
 }
-
 
 
 export default Layout

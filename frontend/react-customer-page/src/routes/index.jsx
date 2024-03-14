@@ -5,18 +5,14 @@ import Userprofile from "../pages/userprofile.jsx";
 
 const Routes = () => {
     const pageRoute = [{
-        path : "/",
-        element : <Customers/>
+        path: "/", element: <Customers/>
     }, {
-        path : "/profile",
-        element: <Userprofile/>
+        path: "/profile", element: <Userprofile/>
     }]
 
 
     const router = createBrowserRouter([...pageRoute])
-    return (
-        <RouterProvider router={router}/>
-    )
+    return (<RouterProvider router={router}/>)
 }
 
 export default Routes
