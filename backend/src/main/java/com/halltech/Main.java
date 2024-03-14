@@ -1,34 +1,44 @@
 package com.halltech;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.Name;
 import com.halltech.customer.Customer;
 import com.halltech.customer.CustomerRespository;
+import com.halltech.customer.Gender;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Random;
 
-import java.util.List;
 
-
-@SpringBootApplication()
+@SpringBootApplication
 public class Main {
 
 
-//    This is the application entry point
+    static String myProperty;
+
     public static void main(String[] args) {
-      ConfigurableApplicationContext applicationContext = SpringApplication.run(Main.class, args);
+        SpringApplication.run(Main.class, args);
 
     }
+
     @Bean
     CommandLineRunner runner(CustomerRespository customerRespository) {
         return args -> {
-            Customer customer1 = new Customer(25, "Adekunju", "devhiee" );
-            Customer customer2 = new Customer(30, "Olayemi", "devtech" );
+            var faker = new Faker();
+            Random random = new Random();
+            Name name = faker.name();
+            String firstName = name.firstName();
+            String lastName = name.lastName();
 
-            List<Customer> customerList = List.of(customer1, customer2);
-            customerRespository.saveAll(customerList);
+            Customer customer = new Customer(
+                    random.nextInt(16, 99),
+                    firstName + " " + lastName,
+                    firstName.toLowerCase() + "@gmail.com",
+                    Gender.MALE);
+            customerRespository.save(customer);
         };
     }
 

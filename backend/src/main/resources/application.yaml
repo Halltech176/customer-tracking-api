@@ -1,15 +1,15 @@
 server:
-  port: 3000
+  port: 3010
   error:
     include-message: always
 spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/customer
-    username: username
-    password: password
+    username: halltech
+    password: Machine101
     driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/customer
   jpa:
     hibernate:
       ddl-auto: validate
@@ -17,7 +17,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-      show_sql: true
+        show_sql: true
   main:
     web-application-type: servlet
 logging:

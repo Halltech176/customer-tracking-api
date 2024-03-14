@@ -4,21 +4,24 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+
 @Repository("jpa")
-public class CustomerJpaDataService implements  CustomerDao{
+public class CustomerJpaDataService implements CustomerDao {
     private final CustomerRespository customerRespository;
 
-    public CustomerJpaDataService(CustomerRespository customerRespository){
+    public CustomerJpaDataService(CustomerRespository customerRespository) {
         this.customerRespository = customerRespository;
     }
 
     @Override
     public List<Customer> selectAllCustomers() {
+
         return customerRespository.findAll();
     }
 
     @Override
     public Optional<Customer> selectCustomerById(Integer id) {
+
         return Optional.empty();
     }
 
